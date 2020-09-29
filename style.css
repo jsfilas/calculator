@@ -1,0 +1,71 @@
+#main {
+    background-color: darkgray;
+    width: 600px;
+    height: 750px; 
+    display: block;
+    border: solid;
+}
+
+#nums {
+    background-color: lightgray;
+    width: 450px;
+    height: 525px;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-areas:
+        "header header header"
+        "main main main"
+        "footer footer footer";
+}
+
+#functions {
+    background-color:darkgoldenrod;
+    width: 150px;
+    height: 525px;
+    margin-left: auto;
+    margin-top: -525px;
+    display: grid;
+}
+
+button#divide, button#add, button#subtract, button#equals, button#multiply {
+    background-color: darkgoldenrod;
+}
+
+#clear {
+    background-color:rgb(143, 76, 60);
+    width: 600px;
+    height: 75px;
+    
+}
+
+#clearButton {
+    background-color: transparent;
+    color: white;
+    border-color: transparent;
+    width: 600px;
+    height: 75px;
+    font-size: large;
+}
+
+#display {
+    background-color: white;
+    width: 600px;
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#zero {
+    grid-column-start: 1;
+    grid-column-end: span 2;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+button {
+    font-size: 30px;
+    border-radius: 0%;
+}
