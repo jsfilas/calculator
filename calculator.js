@@ -142,11 +142,19 @@ let work = {
     },
 
     divide: function() {
-        firstNumDisplay = currentDisplay;
-        currentDisplay = document.getElementById("count").innerHTML = '';
-        operatorClicked = "divide";
-        dotPresent = false;
-
+         if (firstNumDisplay == undefined) {
+            firstNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = '';
+            operatorClicked = "divide";
+            dotPresent = false;
+        }
+        else {
+            secondNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = operate(firstNumDisplay, operatorClicked, secondNumDisplay);
+            operatorClicked = "divide";
+            firstNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = '';
+        }
     },
 
 };
