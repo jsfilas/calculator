@@ -190,3 +190,45 @@ document.getElementById("equals").addEventListener("click", equals);
 
 
 
+function keyListener(element) {
+    switch(true){
+        case(element.keyCode == 49):
+        currentDisplay = document.getElementById("count").innerHTML += 1;
+            break;
+        case(element.keyCode == 50):
+        currentDisplay = document.getElementById("count").innerHTML += 2;
+            break;
+        case(element.keyCode == 51):
+        currentDisplay = document.getElementById("count").innerHTML += 3;
+            break;
+        case(element.keyCode == 52):
+        currentDisplay = document.getElementById("count").innerHTML += 4;
+            break;
+        case(element.keyCode == 53):
+        currentDisplay = document.getElementById("count").innerHTML += 5;
+            break;
+        case(element.keyCode == 54):
+        currentDisplay = document.getElementById("count").innerHTML += 6;
+            break;
+        case(element.keyCode == 55):
+        currentDisplay = document.getElementById("count").innerHTML += 7;
+            break;
+        case(element.keyCode == 56):
+        currentDisplay = document.getElementById("count").innerHTML += 8;
+            break;
+        case(element.keyCode == 57):
+        currentDisplay = document.getElementById("count").innerHTML += 9;
+            break;
+        case(element.keyCode == 48):
+        currentDisplay = document.getElementById("count").innerHTML += 0;
+            break;
+        case(element.keyCode == 190):
+        if(dotPresent == false) {
+            currentDisplay = document.getElementById("count").innerHTML += '.';
+            dotPresent = true;
+        }            break;     
+    }
+}
+
+document.addEventListener('keydown', keyListener, true);
+
