@@ -1,10 +1,11 @@
+// Variables for DOM maniplutation and function expression
 let currentDisplay = document.getElementById("count").innerHTML;
 let firstNumDisplay;
 let secondNumDisplay;
 let operatorClicked;
 let dotPresent = false;
 
-
+// Object for calculator with methods for each equation
 let model = {
     add: function(a, b) {
         return a + b;
@@ -24,6 +25,7 @@ let model = {
 
 };
 
+// operator function that takes floating numbers
 let operate = function(num1, op, num2) {
     let result = ""
     if (op == "add") {
@@ -41,6 +43,7 @@ let operate = function(num1, op, num2) {
     return result;
 }
 
+// Object for numbers to use for button Event Listeners
 let numbers = {
     one: function() {
         currentDisplay = document.getElementById("count").innerHTML += 1;
@@ -90,6 +93,7 @@ let numbers = {
     
 };
 
+// funcgtion that computes the work to the display and manipulates the DOM to keep current results.
 let work = {
 
     add: function() { 
@@ -159,6 +163,8 @@ let work = {
 
 };
 
+
+// seperate function for equals button. 
 let equals = function() {
     secondNumDisplay = currentDisplay;
     currentDisplay = document.getElementById("count").innerHTML = operate(firstNumDisplay, operatorClicked, secondNumDisplay);
@@ -167,6 +173,7 @@ let equals = function() {
     
 } 
 
+// Event Listeners for the buttons
 document.getElementById("one").addEventListener("click", numbers.one);
 document.getElementById("two").addEventListener("click", numbers.two);
 document.getElementById("three").addEventListener("click", numbers.three);
@@ -189,7 +196,7 @@ document.getElementById("divide").addEventListener("click", work.divide);
 document.getElementById("equals").addEventListener("click", equals);
 
 
-
+// Event Listeners for keycodes on numbers and dot
 function keyListener(element) {
     switch(true){
         case(element.keyCode == 49):
