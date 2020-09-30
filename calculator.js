@@ -22,7 +22,6 @@ let model = {
         return a/b;
     },
 
-
 };
 
 let operate = function(num1, op, num2) {
@@ -41,9 +40,6 @@ let operate = function(num1, op, num2) {
 
     return result;
 }
-
-
-
 
 let numbers = {
     one: function() {
@@ -79,6 +75,8 @@ let numbers = {
 
     clear: function() {
         currentDisplay = document.getElementById("count").innerHTML = '';
+        firstNumDisplay = undefined;
+        secondNumDisplay = undefined;
         dotPresent = false;
     },
 
@@ -92,29 +90,54 @@ let numbers = {
     
 };
 
-
 let work = {
 
-    add: function() {
+    add: function() { 
+
+        if (firstNumDisplay == undefined) {
         firstNumDisplay = currentDisplay;
         currentDisplay = document.getElementById("count").innerHTML = '';
         operatorClicked ="add";
         dotPresent = false;
+        } else {
+            secondNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = operate(firstNumDisplay, operatorClicked, secondNumDisplay);
+            operatorClicked = "add";
+            firstNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = '';
+        }
+       
     },
 
     subtract: function() {
+        if (firstNumDisplay == undefined) {
         firstNumDisplay = currentDisplay;
         currentDisplay = document.getElementById("count").innerHTML = '';
         operatorClicked ="subtract";
         dotPresent = false;
-
+        } else {
+            secondNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = operate(firstNumDisplay, operatorClicked, secondNumDisplay);
+            operatorClicked = "subtract";
+            firstNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = '';
+        }
+        
     },
 
     multiply: function() {
+        if (firstNumDisplay == undefined) {
         firstNumDisplay = currentDisplay;
         currentDisplay = document.getElementById("count").innerHTML = '';
         operatorClicked = "multiply";
         dotPresent = false;
+        } else {
+            secondNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = operate(firstNumDisplay, operatorClicked, secondNumDisplay);
+            operatorClicked = "multiply";
+            firstNumDisplay = currentDisplay;
+            currentDisplay = document.getElementById("count").innerHTML = '';
+        }
 
     },
 
@@ -131,8 +154,10 @@ let work = {
 let equals = function() {
     secondNumDisplay = currentDisplay;
     currentDisplay = document.getElementById("count").innerHTML = operate(firstNumDisplay, operatorClicked, secondNumDisplay);
+    firstNumDisplay = undefined;
+    secondNumDisplay = undefined;
+    
 } 
-
 
 document.getElementById("one").addEventListener("click", numbers.one);
 document.getElementById("two").addEventListener("click", numbers.two);
@@ -147,7 +172,6 @@ document.getElementById("zero").addEventListener("click", numbers.zero);
 
 document.getElementById("clearButton").addEventListener("click", numbers.clear);
 document.getElementById("period").addEventListener("click", numbers.dot);
-
 
 document.getElementById("add").addEventListener("click", work.add);
 document.getElementById("subtract").addEventListener("click", work.subtract);
